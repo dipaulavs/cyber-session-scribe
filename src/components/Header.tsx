@@ -1,14 +1,12 @@
-
 import React from 'react';
 import { Session } from '../types';
-
 interface HeaderProps {
   currentSession: Session;
 }
-
-const Header: React.FC<HeaderProps> = ({ currentSession }) => {
-  return (
-    <header className="bg-cyber-darker border-b border-neon-blue/30 p-4 flex items-center justify-between relative z-10">
+const Header: React.FC<HeaderProps> = ({
+  currentSession
+}) => {
+  return <header className="bg-cyber-darker border-b border-neon-blue/30 p-4 flex items-center justify-between relative z-10">
       <div className="flex items-center">
         <div className="relative mr-4">
           <div className="w-10 h-10 bg-gradient-to-br from-neon-blue to-neon-cyan rounded-md transform rotate-45 shadow-lg shadow-neon-blue/20"></div>
@@ -19,16 +17,24 @@ const Header: React.FC<HeaderProps> = ({ currentSession }) => {
         <div className="flex flex-col">
           <div className="flex items-center">
             <h1 className="text-2xl font-cyber-title tracking-wider">
-              <span className="bg-clip-text text-transparent bg-gradient-to-r from-neon-blue to-neon-cyan font-bold" style={{textShadow: "0 0 10px rgba(0, 195, 255, 0.7)"}}>loop</span>
-              <span className="bg-clip-text text-transparent bg-gradient-to-r from-neon-cyan to-neon-blue font-bold" style={{textShadow: "0 0 10px rgba(0, 195, 255, 0.7)"}}>9</span>
+              <span className="bg-clip-text text-transparent bg-gradient-to-r from-neon-blue to-neon-cyan font-bold" style={{
+              textShadow: "0 0 10px rgba(0, 195, 255, 0.7)"
+            }}>DOMÍNIO IMOBILIÁRIO</span>
+              <span className="bg-clip-text text-transparent bg-gradient-to-r from-neon-cyan to-neon-blue font-bold" style={{
+              textShadow: "0 0 10px rgba(0, 195, 255, 0.7)"
+            }}>™</span>
             </h1>
             <div className="ml-2 px-1.5 py-0.5 bg-gradient-to-r from-neon-blue/10 to-neon-purple/10 rounded-md border border-neon-blue/30 text-[10px] text-neon-cyan uppercase tracking-wider">Elite</div>
           </div>
           <div className="flex items-center mt-1">
             <div className="flex space-x-1 mr-2">
               <div className="w-1 h-1 rounded-full bg-neon-blue cyber-pulse"></div>
-              <div className="w-1 h-1 rounded-full bg-neon-purple cyber-pulse" style={{animationDelay: "0.5s"}}></div>
-              <div className="w-1 h-1 rounded-full bg-neon-cyan cyber-pulse" style={{animationDelay: "1s"}}></div>
+              <div className="w-1 h-1 rounded-full bg-neon-purple cyber-pulse" style={{
+              animationDelay: "0.5s"
+            }}></div>
+              <div className="w-1 h-1 rounded-full bg-neon-cyan cyber-pulse" style={{
+              animationDelay: "1s"
+            }}></div>
             </div>
             <span className="text-xs text-gray-400">CYBERNETIC AUTOMATION SYSTEMS</span>
           </div>
@@ -45,8 +51,6 @@ const Header: React.FC<HeaderProps> = ({ currentSession }) => {
           </svg>
         </div>
       </div>
-    </header>
-  );
+    </header>;
 };
-
 export default Header;
