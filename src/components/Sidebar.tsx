@@ -33,19 +33,18 @@ const Sidebar: React.FC<SidebarProps> = ({
           <div>
             <div className="flex items-center">
               <div className="relative mr-2">
-                <div className="w-7 h-7 bg-gradient-to-br from-neon-blue via-neon-purple to-pink-500 rounded-lg transform rotate-45 shadow-lg shadow-neon-blue/20"></div>
+                <div className="w-8 h-8 bg-gradient-to-br from-neon-blue to-neon-cyan rounded-md transform rotate-45 shadow-lg shadow-neon-blue/20"></div>
                 <div className="absolute inset-0 flex items-center justify-center">
-                  <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 text-white" viewBox="0 0 20 20" fill="currentColor">
-                    <path d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z" />
-                  </svg>
+                  <div className="text-white font-bold text-sm">9</div>
                 </div>
               </div>
               <h2 className="font-cyber-title tracking-wider">
-                <span className="bg-clip-text text-transparent bg-gradient-to-r from-neon-blue to-neon-cyan font-bold" style={{textShadow: "0 0 8px rgba(0, 195, 255, 0.7)"}}>DOMÍNIO</span>
+                <span className="bg-clip-text text-transparent bg-gradient-to-r from-neon-blue to-neon-cyan font-bold" style={{textShadow: "0 0 8px rgba(0, 195, 255, 0.7)"}}>loop</span>
+                <span className="bg-clip-text text-transparent bg-gradient-to-r from-neon-cyan to-neon-blue font-bold">9</span>
               </h2>
             </div>
             <div className="flex items-center text-xs mt-1 ml-9">
-              <span className="bg-clip-text text-transparent bg-gradient-to-r from-neon-purple to-pink-500 font-bold" style={{textShadow: "0 0 8px rgba(177, 74, 237, 0.7)"}}>IMOBILIÁRIO</span>
+              <span className="bg-clip-text text-transparent bg-gradient-to-r from-neon-purple to-neon-blue font-bold" style={{textShadow: "0 0 8px rgba(177, 74, 237, 0.7)"}}>AUTOMATION</span>
               <div className="ml-2 px-1 py-0.5 bg-gradient-to-r from-neon-blue/10 to-neon-purple/10 rounded border border-neon-blue/30 text-[8px] text-neon-cyan uppercase tracking-wider">Elite</div>
             </div>
             <div className="flex items-center text-xs text-gray-400 mt-1 ml-9">
@@ -53,7 +52,7 @@ const Sidebar: React.FC<SidebarProps> = ({
                 <div className="w-1 h-1 rounded-full bg-neon-blue cyber-pulse"></div>
                 <div className="w-1 h-1 rounded-full bg-neon-purple cyber-pulse" style={{animationDelay: "0.5s"}}></div>
               </div>
-              <span className="text-[10px]">CONSULTORIA INTELIGENTE</span>
+              <span className="text-[10px]">CYBERNETIC SYSTEMS</span>
             </div>
           </div>
         )}

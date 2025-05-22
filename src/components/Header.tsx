@@ -11,19 +11,16 @@ const Header: React.FC<HeaderProps> = ({ currentSession }) => {
     <header className="bg-cyber-darker border-b border-neon-blue/30 p-4 flex items-center justify-between relative z-10">
       <div className="flex items-center">
         <div className="relative mr-4">
-          <div className="w-10 h-10 bg-gradient-to-br from-neon-blue via-neon-purple to-pink-500 rounded-lg transform rotate-45 shadow-lg shadow-neon-blue/20"></div>
+          <div className="w-10 h-10 bg-gradient-to-br from-neon-blue to-neon-cyan rounded-md transform rotate-45 shadow-lg shadow-neon-blue/20"></div>
           <div className="absolute inset-0 flex items-center justify-center">
-            <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-white" viewBox="0 0 20 20" fill="currentColor">
-              <path d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z" />
-            </svg>
-            <div className="absolute top-0 left-0 right-0 bottom-0 border-2 border-white/20 rounded-lg transform rotate-45 animate-pulse"></div>
+            <div className="text-white font-bold text-lg">9</div>
           </div>
         </div>
         <div className="flex flex-col">
           <div className="flex items-center">
             <h1 className="text-2xl font-cyber-title tracking-wider">
-              <span className="bg-clip-text text-transparent bg-gradient-to-r from-neon-blue to-neon-cyan font-bold" style={{textShadow: "0 0 10px rgba(0, 195, 255, 0.7)"}}>DOMÍNIO</span>
-              <span className="bg-clip-text text-transparent bg-gradient-to-r from-neon-purple to-pink-500 font-bold" style={{textShadow: "0 0 10px rgba(177, 74, 237, 0.7)"}}> IMOBILIÁRIO</span>
+              <span className="bg-clip-text text-transparent bg-gradient-to-r from-neon-blue to-neon-cyan font-bold" style={{textShadow: "0 0 10px rgba(0, 195, 255, 0.7)"}}>loop</span>
+              <span className="bg-clip-text text-transparent bg-gradient-to-r from-neon-cyan to-neon-blue font-bold" style={{textShadow: "0 0 10px rgba(0, 195, 255, 0.7)"}}>9</span>
             </h1>
             <div className="ml-2 px-1.5 py-0.5 bg-gradient-to-r from-neon-blue/10 to-neon-purple/10 rounded-md border border-neon-blue/30 text-[10px] text-neon-cyan uppercase tracking-wider">Elite</div>
           </div>
@@ -33,7 +30,7 @@ const Header: React.FC<HeaderProps> = ({ currentSession }) => {
               <div className="w-1 h-1 rounded-full bg-neon-purple cyber-pulse" style={{animationDelay: "0.5s"}}></div>
               <div className="w-1 h-1 rounded-full bg-neon-cyan cyber-pulse" style={{animationDelay: "1s"}}></div>
             </div>
-            <span className="text-xs text-gray-400">CONSULTORIA IMOBILIÁRIA INTELIGENTE</span>
+            <span className="text-xs text-gray-400">CYBERNETIC AUTOMATION SYSTEMS</span>
           </div>
         </div>
       </div>
