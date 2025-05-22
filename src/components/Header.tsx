@@ -1,50 +1,34 @@
 
 import React from 'react';
 import { Session } from '../types';
+
 interface HeaderProps {
   currentSession: Session;
 }
-const Header: React.FC<HeaderProps> = ({
-  currentSession
-}) => {
-  return <header className="bg-cyber-darker border-b border-neon-blue/30 p-4 flex items-center justify-between relative z-10">
+
+const Header: React.FC<HeaderProps> = ({ currentSession }) => {
+  return (
+    <header className="bg-cyber-darker border-b border-neon-blue/30 p-4 flex items-center justify-between relative z-10">
       <div className="flex items-center">
         <div className="relative mr-4">
           <div className="w-10 h-10 bg-gradient-to-br from-neon-blue to-neon-cyan rounded-md transform rotate-45 shadow-lg shadow-neon-blue/20"></div>
           <div className="absolute inset-0 flex items-center justify-center">
-            <div className="relative w-7 h-7">
-              <div className="absolute inset-0 bg-black/40 rounded-md backdrop-blur-sm"></div>
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="absolute inset-0 w-full h-full text-neon-cyan p-0.5">
-                <path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
-                <polyline points="9 22 9 12 15 12 15 22"></polyline>
-              </svg>
-              <div className="absolute inset-0 border border-white/10 rounded-md"></div>
-              <div className="absolute top-0 left-0 right-0 bottom-0 border border-neon-blue/30 rounded-md animate-pulse"></div>
-              <div className="absolute top-0 right-0 w-1.5 h-1.5 bg-neon-cyan rounded-full shadow-[0_0_5px_rgba(15,244,244,0.8)]"></div>
-            </div>
+            <div className="text-white font-bold text-lg">9</div>
           </div>
         </div>
         <div className="flex flex-col">
           <div className="flex items-center">
             <h1 className="text-2xl font-cyber-title tracking-wider">
-              <span className="bg-clip-text text-transparent bg-gradient-to-r from-neon-blue to-neon-cyan font-bold" style={{
-              textShadow: "0 0 10px rgba(0, 195, 255, 0.7)"
-            }}>DOMÍNIO IMOBILIÁRIO</span>
-              <span className="bg-clip-text text-transparent bg-gradient-to-r from-neon-cyan to-neon-blue font-bold" style={{
-              textShadow: "0 0 10px rgba(0, 195, 255, 0.7)"
-            }}>™</span>
+              <span className="bg-clip-text text-transparent bg-gradient-to-r from-neon-blue to-neon-cyan font-bold" style={{textShadow: "0 0 10px rgba(0, 195, 255, 0.7)"}}>loop</span>
+              <span className="bg-clip-text text-transparent bg-gradient-to-r from-neon-cyan to-neon-blue font-bold" style={{textShadow: "0 0 10px rgba(0, 195, 255, 0.7)"}}>9</span>
             </h1>
             <div className="ml-2 px-1.5 py-0.5 bg-gradient-to-r from-neon-blue/10 to-neon-purple/10 rounded-md border border-neon-blue/30 text-[10px] text-neon-cyan uppercase tracking-wider">Elite</div>
           </div>
           <div className="flex items-center mt-1">
             <div className="flex space-x-1 mr-2">
               <div className="w-1 h-1 rounded-full bg-neon-blue cyber-pulse"></div>
-              <div className="w-1 h-1 rounded-full bg-neon-purple cyber-pulse" style={{
-              animationDelay: "0.5s"
-            }}></div>
-              <div className="w-1 h-1 rounded-full bg-neon-cyan cyber-pulse" style={{
-              animationDelay: "1s"
-            }}></div>
+              <div className="w-1 h-1 rounded-full bg-neon-purple cyber-pulse" style={{animationDelay: "0.5s"}}></div>
+              <div className="w-1 h-1 rounded-full bg-neon-cyan cyber-pulse" style={{animationDelay: "1s"}}></div>
             </div>
             <span className="text-xs text-gray-400">CYBERNETIC AUTOMATION SYSTEMS</span>
           </div>
@@ -61,6 +45,8 @@ const Header: React.FC<HeaderProps> = ({
           </svg>
         </div>
       </div>
-    </header>;
+    </header>
+  );
 };
+
 export default Header;
