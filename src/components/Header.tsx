@@ -22,7 +22,7 @@ const Header: React.FC<HeaderProps> = ({
             }}>DOMÍNIO IMOBILIÁRIO</span>
               <span className="bg-clip-text text-transparent bg-gradient-to-r from-neon-cyan to-neon-blue font-bold" style={{
               textShadow: "0 0 10px rgba(0, 195, 255, 0.7)"
-            }}>9</span>
+            }}>™</span>
             </h1>
             
           </div>
