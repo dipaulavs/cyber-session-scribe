@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { Session } from '../types';
 interface HeaderProps {
@@ -11,7 +12,16 @@ const Header: React.FC<HeaderProps> = ({
         <div className="relative mr-4">
           <div className="w-10 h-10 bg-gradient-to-br from-neon-blue to-neon-cyan rounded-md transform rotate-45 shadow-lg shadow-neon-blue/20"></div>
           <div className="absolute inset-0 flex items-center justify-center">
-            <div className="text-white font-bold text-lg">9</div>
+            <div className="relative w-6 h-6">
+              <div className="absolute inset-0 bg-black/40 rounded-full backdrop-blur-sm"></div>
+              <div className="absolute inset-0 flex items-center justify-center">
+                <div className="w-4 h-4 border-2 border-neon-cyan rounded-full"></div>
+                <div className="absolute top-1/2 left-1/2 w-5 h-1 bg-neon-blue -translate-x-1/2 -translate-y-1/2 glow-text-blue"></div>
+              </div>
+              <div className="absolute inset-0 border border-white/10 rounded-full"></div>
+              <div className="absolute top-0 left-0 right-0 bottom-0 border border-neon-blue/30 rounded-full animate-pulse"></div>
+              <div className="absolute top-0 right-0 w-1.5 h-1.5 bg-neon-cyan rounded-full shadow-[0_0_5px_rgba(15,244,244,0.8)]"></div>
+            </div>
           </div>
         </div>
         <div className="flex flex-col">
