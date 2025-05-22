@@ -38,8 +38,8 @@ const ChatInterface: React.FC = () => {
   
   const [activeSessionId, setActiveSessionId] = useState(1);
   
-  const apiUrl = 'https://evoapi.loop9.com.br/api/v1/a2a/d54a3587-e3fb-40bb-af1a-35dc7eb3c4e9';
-  const apiKey = '208eaea6-0e32-4b92-a2a4-6af3103f4d8d';
+  const apiUrl = 'https://evoapi.loop9.com.br/api/v1/a2a/20c0c5d6-03c6-41cb-9927-f6fa61f3efc1';
+  const apiKey = '737ceff1-cfc4-42f9-8a46-d32945ebd717';
 
   const scrollToBottom = () => {
     messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
