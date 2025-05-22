@@ -1,4 +1,3 @@
-
 import React, { useState, useRef, useEffect } from 'react';
 import Sidebar from './Sidebar';
 import MessageList from './MessageList';
@@ -129,7 +128,7 @@ const ChatInterface: React.FC = () => {
         },
         body: JSON.stringify({
           jsonrpc: '2.0',
-          method: 'tasks/send',
+          method: 'tasks/sendSubscribe', // Changed from 'tasks/send' to 'tasks/sendSubscribe'
           params: {
             message: {
               role: 'user',
@@ -140,7 +139,7 @@ const ChatInterface: React.FC = () => {
                 }
               ]
             },
-            sessionId: currentSession.sessionId, // Use the session's unique ID
+            sessionId: currentSession.sessionId,
             id: `task-${Date.now()}`
           },
           id: `call-${Date.now()}`
