@@ -1,6 +1,9 @@
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700&family=Rajdhani:wght@300;400;500;600;700&display=swap');
 
 @layer base {
   :root {
@@ -98,4 +101,33 @@
   body {
     @apply bg-background text-foreground;
   }
+}
+
+/* Custom cyberpunk styles */
+
+.font-cyber {
+  font-family: 'Rajdhani', sans-serif;
+}
+
+.font-cyber-title {
+  font-family: 'Orbitron', sans-serif;
+}
+
+.bg-cyber-dark {
+  background-color: #0a0e17;
+  background-image: 
+    radial-gradient(circle at 15% 50%, rgba(17, 142, 165, 0.1) 0%, transparent 25%),
+    radial-gradient(circle at 85% 30%, rgba(118, 36, 194, 0.1) 0%, transparent 33%);
+}
+
+.text-neon-blue {
+  color: #00c3ff;
+}
+
+.text-neon-purple {
+  color: #b14aed;
+}
+
+.text-neon-cyan {
+  color: #0ff4f4;
 }
