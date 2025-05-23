@@ -1,4 +1,3 @@
-
 import React, { useState, useRef, useEffect } from 'react';
 import Sidebar from './Sidebar';
 import MessageList from './MessageList';
@@ -137,6 +136,11 @@ const ChatInterface: React.FC = () => {
     setShowTypingEffect(true);
     
     try {
+      console.log('Sending message to API:', {
+        sessionId: currentSession.sessionId,
+        message: inputText
+      });
+      
       const response = await fetch(apiUrl, {
         method: 'POST',
         headers: {
@@ -163,9 +167,12 @@ const ChatInterface: React.FC = () => {
         })
       });
       
+      console.log('API Response status:', response.status);
       const data = await response.json();
+      console.log('API Response data:', data);
       
       if (data.error) {
+        console.error('API Error:', data.error);
         setMessages(prev => ({
           ...prev,
           [currentSession.sessionId]: [
@@ -175,6 +182,7 @@ const ChatInterface: React.FC = () => {
         }));
       } else if (data.result && data.result.status && data.result.status.message) {
         const botContent = data.result.status.message.parts[0].text;
+        console.log('Bot response:', botContent);
         setMessages(prev => ({
           ...prev,
           [currentSession.sessionId]: [
@@ -183,6 +191,7 @@ const ChatInterface: React.FC = () => {
           ]
         }));
       } else {
+        console.warn('Unexpected response format:', data);
         setMessages(prev => ({
           ...prev,
           [currentSession.sessionId]: [
@@ -192,6 +201,7 @@ const ChatInterface: React.FC = () => {
         }));
       }
     } catch (error) {
+      console.error('API Error:', error);
       const errorMessage = error instanceof Error ? error.message : 'Unknown error';
       setMessages(prev => ({
         ...prev,
@@ -610,8 +620,8 @@ This conversation history is **restored**.
             <span className="text-gray-500 sm:hidden">ACTIVE</span>
           </div>
           <div className="flex items-center">
-            <span className="text-neon-blue mr-2 font-mono tracking-wider text-xs">
-              {getCurrentSession().sessionId.substring(0, 6)}
+            <span className="text-neon-blue mr-2 font-mono tracking-wider text-xs truncate max-w-[80px] sm:max-w-none">
+              {getCurrentSession().sessionId.substring(0, 8)}
             </span>
             <div className="cyber-scanner h-3 w-6 sm:h-4 sm:w-10 bg-neon-blue/10 rounded-sm"></div>
           </div>
