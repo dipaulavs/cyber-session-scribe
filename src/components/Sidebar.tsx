@@ -39,9 +39,9 @@ const Sidebar: React.FC<SidebarProps> = ({
           <div className="flex items-center justify-center w-full">
             <div className="relative">
               <img 
-                src="/lovable-uploads/726391bb-bf2b-42e6-8fd8-8bcefcfcb8d4.png" 
-                alt="Logo" 
-                className="w-12 h-12 sm:w-14 sm:h-14 object-contain"
+                src="/lovable-uploads/bfd22b0b-8380-4bd7-9923-1711a5ea1398.png" 
+                alt="Loop9 Technology" 
+                className="w-16 h-16 sm:w-20 sm:h-20 object-contain"
               />
             </div>
           </div>
@@ -131,14 +131,17 @@ const Sidebar: React.FC<SidebarProps> = ({
         ))}
       </div>
       
-      {/* Sidebar Footer */}
+      {/* Sidebar Footer com efeito pulsante verde */}
       {sidebarExpanded && (
         <div className={`${isMobile ? 'p-2' : 'p-3'} border-t border-neon-blue/20 text-xs text-gray-500`}>
           <div className="flex items-center justify-between">
             <span className="text-xs">SYSTEM v2.0.5</span>
             <div className="flex items-center">
-              <div className="w-2 h-2 rounded-full bg-neon-blue mr-1 cyber-pulse"></div>
-              <span className="text-neon-blue text-xs">ONLINE</span>
+              <div className="w-2 h-2 rounded-full bg-green-400 mr-1 animate-pulse shadow-lg" style={{
+                boxShadow: "0 0 10px rgba(34, 197, 94, 0.8)",
+                animation: "pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite"
+              }}></div>
+              <span className="text-green-400 text-xs font-medium">ONLINE</span>
             </div>
           </div>
         </div>

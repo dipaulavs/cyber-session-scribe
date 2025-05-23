@@ -29,12 +29,12 @@ const Header: React.FC<HeaderProps> = ({
           </button>
         )}
         
-        {/* Logo maior */}
+        {/* Logo Loop9 */}
         <div className="relative mr-3 sm:mr-4 flex-shrink-0">
           <img 
-            src="/lovable-uploads/726391bb-bf2b-42e6-8fd8-8bcefcfcb8d4.png" 
-            alt="Logo" 
-            className="w-10 h-10 sm:w-12 sm:h-12 object-contain opacity-90"
+            src="/lovable-uploads/bfd22b0b-8380-4bd7-9923-1711a5ea1398.png" 
+            alt="Loop9 Technology" 
+            className="w-12 h-12 sm:w-16 sm:h-16 object-contain opacity-90"
           />
         </div>
         
