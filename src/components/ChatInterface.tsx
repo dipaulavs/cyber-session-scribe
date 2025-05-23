@@ -168,38 +168,64 @@ const ChatInterface: React.FC = () => {
       });
       
       console.log('API Response status:', response.status);
-      const data = await response.json();
-      console.log('API Response data:', data);
       
-      if (data.error) {
-        console.error('API Error:', data.error);
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+      
+      // A resposta é um stream de dados separados por linhas
+      const responseText = await response.text();
+      console.log('Raw response:', responseText);
+      
+      // Dividir a resposta em linhas e processar cada linha que contém dados JSON
+      const lines = responseText.split('\n');
+      let finalMessage = '';
+      
+      for (const line of lines) {
+        if (line.startsWith('data: ')) {
+          try {
+            const jsonData = JSON.parse(line.substring(6)); // Remove 'data: ' prefix
+            console.log('Parsed JSON data:', jsonData);
+            
+            if (jsonData.result) {
+              if (jsonData.result.status && jsonData.result.status.message && jsonData.result.status.message.parts) {
+                finalMessage = jsonData.result.status.message.parts[0].text;
+              }
+              
+              if (jsonData.result.artifact && jsonData.result.artifact.parts) {
+                finalMessage = jsonData.result.artifact.parts[0].text;
+              }
+              
+              if (jsonData.result.final === true && finalMessage) {
+                console.log('Final message received:', finalMessage);
+                break;
+              }
+            }
+          } catch (parseError) {
+            console.warn('Error parsing JSON line:', line, parseError);
+          }
+        }
+      }
+      
+      if (finalMessage) {
         setMessages(prev => ({
           ...prev,
           [currentSession.sessionId]: [
             ...(prev[currentSession.sessionId] || []),
-            { role: 'assistant', content: `Error: ${data.error.message}` }
-          ]
-        }));
-      } else if (data.result && data.result.status && data.result.status.message) {
-        const botContent = data.result.status.message.parts[0].text;
-        console.log('Bot response:', botContent);
-        setMessages(prev => ({
-          ...prev,
-          [currentSession.sessionId]: [
-            ...(prev[currentSession.sessionId] || []),
-            { role: 'assistant', content: botContent }
+            { role: 'assistant', content: finalMessage }
           ]
         }));
       } else {
-        console.warn('Unexpected response format:', data);
+        console.warn('No valid message found in response');
         setMessages(prev => ({
           ...prev,
           [currentSession.sessionId]: [
             ...(prev[currentSession.sessionId] || []),
-            { role: 'assistant', content: 'Received an unexpected response format' }
+            { role: 'assistant', content: 'Desculpe, não consegui processar sua mensagem. Tente novamente.' }
           ]
         }));
       }
+      
     } catch (error) {
       console.error('API Error:', error);
       const errorMessage = error instanceof Error ? error.message : 'Unknown error';
@@ -207,7 +233,7 @@ const ChatInterface: React.FC = () => {
         ...prev,
         [currentSession.sessionId]: [
           ...(prev[currentSession.sessionId] || []),
-          { role: 'assistant', content: `Failed to connect: ${errorMessage}` }
+          { role: 'assistant', content: `Erro de conexão: ${errorMessage}` }
         ]
       }));
     } finally {
@@ -612,7 +638,7 @@ This conversation history is **restored**.
           formatFileSize={formatFileSize}
         />
         
-        {/* Connection status */}
+        {/* Connection status - removido session ID */}
         <div className="bg-cyber-darker border-t border-neon-blue/20 py-1.5 px-2 sm:px-4 flex items-center justify-between text-xs relative z-10">
           <div className="flex items-center">
             <div className="w-2 h-2 rounded-full bg-neon-blue mr-2 cyber-pulse"></div>
@@ -620,8 +646,8 @@ This conversation history is **restored**.
             <span className="text-gray-500 sm:hidden">ACTIVE</span>
           </div>
           <div className="flex items-center">
-            <span className="text-neon-blue mr-2 font-mono tracking-wider text-xs truncate max-w-[80px] sm:max-w-none">
-              {getCurrentSession().sessionId.substring(0, 8)}
+            <span className="text-neon-blue mr-2 font-mono tracking-wider text-xs">
+              SYSTEM ONLINE
             </span>
             <div className="cyber-scanner h-3 w-6 sm:h-4 sm:w-10 bg-neon-blue/10 rounded-sm"></div>
           </div>

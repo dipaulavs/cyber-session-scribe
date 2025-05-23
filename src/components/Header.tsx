@@ -29,22 +29,22 @@ const Header: React.FC<HeaderProps> = ({
           </button>
         )}
         
-        {/* New Loop9 Logo */}
-        <div className="relative mr-2 sm:mr-3 flex-shrink-0">
+        {/* Logo maior */}
+        <div className="relative mr-3 sm:mr-4 flex-shrink-0">
           <img 
-            src="/lovable-uploads/8178a521-2c7d-4bc7-8718-2c4aa14fe176.png" 
-            alt="Loop9 Technology" 
-            className="w-6 h-6 sm:w-8 sm:h-8 object-contain opacity-80"
+            src="/lovable-uploads/726391bb-bf2b-42e6-8fd8-8bcefcfcb8d4.png" 
+            alt="Logo" 
+            className="w-10 h-10 sm:w-12 sm:h-12 object-contain opacity-90"
           />
         </div>
         
         <div className="flex flex-col min-w-0 flex-1">
           <div className="flex items-center">
-            <h1 className="text-xs sm:text-sm md:text-base font-cyber-title tracking-wider truncate">
+            <h1 className="text-sm sm:text-base md:text-lg font-cyber-title tracking-wider truncate">
               <span className="bg-clip-text text-transparent bg-gradient-to-r from-neon-blue to-neon-cyan font-bold" style={{
                 textShadow: "0 0 8px rgba(0, 195, 255, 0.5)"
               }}>DOMÍNIO IMOBILIÁRIO</span>
-              <span className="bg-clip-text text-transparent bg-gradient-to-r from-neon-cyan to-neon-blue font-bold text-xs sm:text-xs" style={{
+              <span className="bg-clip-text text-transparent bg-gradient-to-r from-neon-cyan to-neon-blue font-bold text-xs sm:text-sm" style={{
                 textShadow: "0 0 8px rgba(0, 195, 255, 0.5)"
               }}>™</span>
             </h1>

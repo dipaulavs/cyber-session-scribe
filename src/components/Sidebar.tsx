@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { Session } from '../types';
 
@@ -35,35 +36,13 @@ const Sidebar: React.FC<SidebarProps> = ({
       {/* Sidebar Header */}
       <div className={`${isMobile ? 'p-3' : 'p-4'} border-b border-neon-blue/20 flex items-center justify-between`}>
         {sidebarExpanded && (
-          <div>
-            <div className="flex items-center">
-              <div className="relative mr-2">
-                <img 
-                  src="/lovable-uploads/8178a521-2c7d-4bc7-8718-2c4aa14fe176.png" 
-                  alt="Loop9 Technology" 
-                  className="w-6 h-6 sm:w-8 sm:h-8 object-contain"
-                />
-              </div>
-              <h2 className="font-cyber-title tracking-wider text-sm sm:text-base">
-                <span className="bg-clip-text text-transparent bg-gradient-to-r from-neon-blue to-neon-cyan font-bold" style={{
-                  textShadow: "0 0 8px rgba(0, 195, 255, 0.7)"
-                }}>loop</span>
-                <span className="bg-clip-text text-transparent bg-gradient-to-r from-neon-cyan to-neon-blue font-bold">9</span>
-              </h2>
-            </div>
-            <div className={`flex items-center text-xs mt-1 ${isMobile ? 'ml-7' : 'ml-9'}`}>
-              <span className="bg-clip-text text-transparent bg-gradient-to-r from-neon-purple to-neon-blue font-bold" style={{
-                textShadow: "0 0 8px rgba(177, 74, 237, 0.7)"
-              }}>AGENT.AI</span>
-            </div>
-            <div className={`flex items-center text-xs text-gray-400 mt-1 ${isMobile ? 'ml-7' : 'ml-9'}`}>
-              <div className="flex space-x-1 mr-1">
-                <div className="w-1 h-1 rounded-full bg-neon-blue cyber-pulse"></div>
-                <div className="w-1 h-1 rounded-full bg-neon-purple cyber-pulse" style={{
-                  animationDelay: "0.5s"
-                }}></div>
-              </div>
-              <span className="text-[10px]">CYBERNETIC SYSTEMS</span>
+          <div className="flex items-center justify-center w-full">
+            <div className="relative">
+              <img 
+                src="/lovable-uploads/726391bb-bf2b-42e6-8fd8-8bcefcfcb8d4.png" 
+                alt="Logo" 
+                className="w-12 h-12 sm:w-14 sm:h-14 object-contain"
+              />
             </div>
           </div>
         )}
