@@ -17,6 +17,22 @@ const ChatInterface: React.FC = () => {
   const fileInputRef = useRef<HTMLInputElement>(null);
   const [showTypingEffect, setShowTypingEffect] = useState(false);
   const messagesEndRef = useRef<HTMLDivElement>(null);
+  const [isMobile, setIsMobile] = useState(false);
+  
+  // Check if mobile on mount and window resize
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768);
+      // Auto-collapse sidebar on mobile
+      if (window.innerWidth < 768) {
+        setSidebarExpanded(false);
+      }
+    };
+    
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
   
   // Generate initial session
   const initialSessionId = generateUniqueSessionId();
@@ -129,7 +145,7 @@ const ChatInterface: React.FC = () => {
         },
         body: JSON.stringify({
           jsonrpc: '2.0',
-          method: 'tasks/send',
+          method: 'tasks/sendSubscribe',
           params: {
             message: {
               role: 'user',
@@ -140,7 +156,7 @@ const ChatInterface: React.FC = () => {
                 }
               ]
             },
-            sessionId: currentSession.sessionId, // Use the session's unique ID
+            sessionId: currentSession.sessionId,
             id: `task-${Date.now()}`
           },
           id: `call-${Date.now()}`
@@ -249,6 +265,11 @@ This is a **new conversation** with DOMÍNIO IMOBILIÁRIO AI.
         }
       ]
     }));
+
+    // Close sidebar on mobile after creating session
+    if (isMobile) {
+      setSidebarExpanded(false);
+    }
   };
 
   const selectSession = (id: number) => {
@@ -283,6 +304,11 @@ This conversation history is **restored**.
         ]
       }));
     }
+
+    // Close sidebar on mobile after selecting session
+    if (isMobile) {
+      setSidebarExpanded(false);
+    }
   };
 
   const filteredSessions = sessions.filter(session => 
@@ -295,7 +321,7 @@ This conversation history is **restored**.
 
   return (
     <div className="flex h-screen bg-cyber-dark text-gray-100 font-cyber overflow-hidden">
-      {/* Custom CSS */}
+      {/* Custom CSS with responsive improvements */}
       <style>
         {`
         @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700&family=Rajdhani:wght@300;400;500;600;700&display=swap');
@@ -499,8 +525,39 @@ This conversation history is **restored**.
           background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
           pointer-events: none;
         }
+        
+        /* Mobile-specific styles */
+        @media (max-width: 768px) {
+          .cyber-grid {
+            background-size: 15px 15px;
+          }
+          
+          .cyber-scrollbar::-webkit-scrollbar {
+            width: 2px;
+          }
+        }
+        
+        /* Sidebar overlay for mobile */
+        .sidebar-overlay {
+          position: fixed;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          background-color: rgba(0, 0, 0, 0.5);
+          z-index: 20;
+          backdrop-filter: blur(4px);
+        }
         `}
       </style>
+      
+      {/* Mobile sidebar overlay */}
+      {isMobile && sidebarExpanded && (
+        <div 
+          className="sidebar-overlay md:hidden"
+          onClick={() => setSidebarExpanded(false)}
+        />
+      )}
       
       <Sidebar 
         sessions={filteredSessions} 
@@ -510,6 +567,7 @@ This conversation history is **restored**.
         selectSession={selectSession} 
         sidebarExpanded={sidebarExpanded}
         toggleSidebar={toggleSidebar}
+        isMobile={isMobile}
       />
       
       <div className="flex-1 flex flex-col relative overflow-hidden cyber-noise">
@@ -518,6 +576,8 @@ This conversation history is **restored**.
         
         <Header 
           currentSession={getCurrentSession()}
+          toggleSidebar={toggleSidebar}
+          isMobile={isMobile}
         />
         
         <MessageList 
@@ -543,16 +603,17 @@ This conversation history is **restored**.
         />
         
         {/* Connection status */}
-        <div className="bg-cyber-darker border-t border-neon-blue/20 py-1.5 px-4 flex items-center justify-between text-xs relative z-10">
+        <div className="bg-cyber-darker border-t border-neon-blue/20 py-1.5 px-2 sm:px-4 flex items-center justify-between text-xs relative z-10">
           <div className="flex items-center">
             <div className="w-2 h-2 rounded-full bg-neon-blue mr-2 cyber-pulse"></div>
-            <span className="text-gray-500">QUANTUM LINK ACTIVE</span>
+            <span className="text-gray-500 hidden sm:inline">QUANTUM LINK ACTIVE</span>
+            <span className="text-gray-500 sm:hidden">ACTIVE</span>
           </div>
           <div className="flex items-center">
-            <span className="text-neon-blue mr-2 font-mono tracking-wider">
-              {getCurrentSession().sessionId.substring(0, 8)}
+            <span className="text-neon-blue mr-2 font-mono tracking-wider text-xs">
+              {getCurrentSession().sessionId.substring(0, 6)}
             </span>
-            <div className="cyber-scanner h-4 w-10 bg-neon-blue/10 rounded-sm"></div>
+            <div className="cyber-scanner h-3 w-6 sm:h-4 sm:w-10 bg-neon-blue/10 rounded-sm"></div>
           </div>
         </div>
       </div>
