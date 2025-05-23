@@ -13,7 +13,8 @@ const Header: React.FC<HeaderProps> = ({
   toggleSidebar,
   isMobile
 }) => {
-  return <header className="bg-cyber-darker border-b border-neon-blue/30 p-2 sm:p-4 flex items-center justify-between relative z-10">
+  return (
+    <header className="bg-cyber-darker border-b border-neon-blue/30 p-2 sm:p-4 flex items-center justify-between relative z-10">
       <div className="flex items-center flex-1 min-w-0">
         {/* Mobile sidebar toggle button */}
         {isMobile && toggleSidebar && (
@@ -31,7 +32,7 @@ const Header: React.FC<HeaderProps> = ({
         {/* New Loop9 Logo */}
         <div className="relative mr-2 sm:mr-3 flex-shrink-0">
           <img 
-            src="/lovable-uploads/726391bb-bf2b-42e6-8fd8-8bcefcfcb8d4.png" 
+            src="/lovable-uploads/8178a521-2c7d-4bc7-8718-2c4aa14fe176.png" 
             alt="Loop9 Technology" 
             className="w-6 h-6 sm:w-8 sm:h-8 object-contain opacity-80"
           />
@@ -39,24 +40,24 @@ const Header: React.FC<HeaderProps> = ({
         
         <div className="flex flex-col min-w-0 flex-1">
           <div className="flex items-center">
-            <h1 className="text-sm sm:text-lg md:text-xl font-cyber-title tracking-wider truncate">
+            <h1 className="text-xs sm:text-sm md:text-base font-cyber-title tracking-wider truncate">
               <span className="bg-clip-text text-transparent bg-gradient-to-r from-neon-blue to-neon-cyan font-bold" style={{
-              textShadow: "0 0 8px rgba(0, 195, 255, 0.5)"
-            }}>DOMÍNIO IMOBILIÁRIO</span>
-              <span className="bg-clip-text text-transparent bg-gradient-to-r from-neon-cyan to-neon-blue font-bold text-xs sm:text-sm" style={{
-              textShadow: "0 0 8px rgba(0, 195, 255, 0.5)"
-            }}>™</span>
+                textShadow: "0 0 8px rgba(0, 195, 255, 0.5)"
+              }}>DOMÍNIO IMOBILIÁRIO</span>
+              <span className="bg-clip-text text-transparent bg-gradient-to-r from-neon-cyan to-neon-blue font-bold text-xs sm:text-xs" style={{
+                textShadow: "0 0 8px rgba(0, 195, 255, 0.5)"
+              }}>™</span>
             </h1>
           </div>
           <div className="flex items-center mt-0.5 sm:mt-1">
             <div className="flex space-x-1 mr-1 sm:mr-2">
               <div className="w-0.5 h-0.5 sm:w-1 sm:h-1 rounded-full bg-neon-blue cyber-pulse"></div>
               <div className="w-0.5 h-0.5 sm:w-1 sm:h-1 rounded-full bg-neon-purple cyber-pulse" style={{
-              animationDelay: "0.5s"
-            }}></div>
+                animationDelay: "0.5s"
+              }}></div>
               <div className="w-0.5 h-0.5 sm:w-1 sm:h-1 rounded-full bg-neon-cyan cyber-pulse" style={{
-              animationDelay: "1s"
-            }}></div>
+                animationDelay: "1s"
+              }}></div>
             </div>
             <span className="text-xs sm:text-xs text-gray-400 hidden sm:block">CYBERNETIC AUTOMATION SYSTEMS</span>
             <span className="text-xs text-gray-400 sm:hidden">CYBER SYSTEMS</span>
@@ -65,9 +66,9 @@ const Header: React.FC<HeaderProps> = ({
       </div>
       
       <div className="flex items-center flex-shrink-0 ml-2">
-        <div className="text-xs sm:text-sm text-gray-400 mr-2 sm:mr-4 bg-cyber-darker px-2 py-1 rounded-full border border-neon-blue/20 max-w-[120px] sm:max-w-none">
+        <div className="text-xs sm:text-sm text-gray-400 mr-2 sm:mr-4 bg-cyber-darker px-2 py-1 rounded-full border border-neon-blue/20 max-w-[80px] sm:max-w-none">
           <span className="text-neon-blue mr-1">#</span>
-          <span className="truncate inline-block max-w-[60px] sm:max-w-none">
+          <span className="truncate inline-block max-w-[40px] sm:max-w-none">
             {currentSession?.name}
           </span>
         </div>
@@ -77,7 +78,8 @@ const Header: React.FC<HeaderProps> = ({
           </svg>
         </div>
       </div>
-    </header>;
+    </header>
+  );
 };
 
 export default Header;

@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Session } from '../types';
 
@@ -39,10 +38,11 @@ const Sidebar: React.FC<SidebarProps> = ({
           <div>
             <div className="flex items-center">
               <div className="relative mr-2">
-                <div className="w-6 h-6 sm:w-8 sm:h-8 bg-gradient-to-br from-neon-blue to-neon-cyan rounded-md transform rotate-45 shadow-lg shadow-neon-blue/20"></div>
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <div className="text-white font-bold text-xs sm:text-sm">9</div>
-                </div>
+                <img 
+                  src="/lovable-uploads/8178a521-2c7d-4bc7-8718-2c4aa14fe176.png" 
+                  alt="Loop9 Technology" 
+                  className="w-6 h-6 sm:w-8 sm:h-8 object-contain"
+                />
               </div>
               <h2 className="font-cyber-title tracking-wider text-sm sm:text-base">
                 <span className="bg-clip-text text-transparent bg-gradient-to-r from-neon-blue to-neon-cyan font-bold" style={{
