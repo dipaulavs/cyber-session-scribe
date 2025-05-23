@@ -1,13 +1,33 @@
+
 import React from 'react';
 import { Session } from '../types';
+
 interface HeaderProps {
   currentSession: Session;
+  toggleSidebar?: () => void;
+  isMobile?: boolean;
 }
+
 const Header: React.FC<HeaderProps> = ({
-  currentSession
+  currentSession,
+  toggleSidebar,
+  isMobile
 }) => {
   return <header className="bg-cyber-darker border-b border-neon-blue/30 p-4 flex items-center justify-between relative z-10">
       <div className="flex items-center">
+        {/* Mobile sidebar toggle button */}
+        {isMobile && toggleSidebar && (
+          <button
+            onClick={toggleSidebar}
+            className="mr-3 p-2 text-neon-blue hover:text-white transition-colors md:hidden"
+            aria-label="Toggle sidebar"
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+          </button>
+        )}
+        
         <div className="relative mr-4">
           <div className="w-10 h-10 bg-gradient-to-br from-neon-blue to-neon-cyan rounded-md transform rotate-45 shadow-lg shadow-neon-blue/20"></div>
           <div className="absolute inset-0 flex items-center justify-center">
@@ -53,4 +73,5 @@ const Header: React.FC<HeaderProps> = ({
       </div>
     </header>;
 };
+
 export default Header;
